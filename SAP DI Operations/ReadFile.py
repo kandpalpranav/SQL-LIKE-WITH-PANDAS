@@ -11,5 +11,6 @@ def read_file(msg):
     with client.read(sdl_file , encoding='utf-8') as reader:
         df_key = pd.read_csv(reader)
         api.send("outData",api.Message(attributes=attr, body= str(df_key)))
+        api.send("out2",str(df_key))
 
 api.set_port_callback("input", read_file)
